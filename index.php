@@ -19,7 +19,6 @@
  <h1>Register here!</h1>
  <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
  <form method="post" action="index.php" enctype="multipart/form-data" >
-       Id  <input type="text" name="id" id="id"/></br></br>
        Name  <input type="text" name="name" id="name"/></br></br>
        Email <input type="text" name="email" id="email"/></br></br>
        Job <input type="text" name="job" id="job"/></br></br>
@@ -162,22 +161,20 @@
             echo $code.": ".$error_message."<br />";
         }
         try {
-            $id = $_POST['id'];
             $name = $_POST['name'];
             $email = $_POST['email'];
             $job = $_POST['job'];
             $image = $_POST['image'];
             $date = date("Y-m-d");
             // Insert data
-            $sql_insert = "INSERT INTO Registration (id, name, email, job, image, date) 
-                        VALUES (?,?,?,?,?,?)";
+            $sql_insert = "INSERT INTO Submission (name, email, job, image, date) 
+                        VALUES (?,?,?,?,?)";
             $stmt = $conn->prepare($sql_insert);
-            $stmt->bindValue(1, $id);
-            $stmt->bindValue(2, $name);
-            $stmt->bindValue(3, $email);
-            $stmt->bindValue(4, $job);
-            $stmt->bindValue(5, $image);
-            $stmt->bindValue(6, $date);
+            $stmt->bindValue(1, $name);
+            $stmt->bindValue(2, $email);
+            $stmt->bindValue(3, $job);
+            $stmt->bindValue(4, $image);
+            $stmt->bindValue(5, $date);
             $stmt->execute();
         } catch(Exception $e) {
             echo "Failed: " . $e;
@@ -188,20 +185,18 @@
     }
 }else {
     try {
-            $id = $_POST['id'];
             $name = $_POST['name'];
             $email = $_POST['email'];
             $job = $_POST['job'];
             $date = date("Y-m-d");
             // Insert data
-            $sql_insert = "INSERT INTO Registration (id, name, email, job, date) 
-                        VALUES (?,?,?,?,?,?)";
+            $sql_insert = "INSERT INTO Submission (name, email, job, date) 
+                        VALUES (?,?,?,?)";
             $stmt = $conn->prepare($sql_insert);
-            $stmt->bindValue(1, $id);
-            $stmt->bindValue(2, $name);
-            $stmt->bindValue(3, $email);
-            $stmt->bindValue(4, $job);
-            $stmt->bindValue(5, $date);            
+            $stmt->bindValue(1, $name);
+            $stmt->bindValue(2, $email);
+            $stmt->bindValue(3, $job);
+            $stmt->bindValue(4, $date);            
             $stmt->execute();
         } catch(Exception $e) {
             echo "Failed: " . $e;
@@ -210,7 +205,7 @@
         }
     } else if (isset($_POST['load_data'])) {
         try {
-            $sql_select = "SELECT * FROM Registration";
+            $sql_select = "SELECT * FROM Submission";
             $stmt = $conn->query($sql_select);
             $registrants = $stmt->fetchAll(); 
             if(count($registrants) > 0) {

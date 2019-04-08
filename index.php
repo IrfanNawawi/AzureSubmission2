@@ -188,15 +188,17 @@
             $name = $_POST['name'];
             $email = $_POST['email'];
             $job = $_POST['job'];
+            $image = $_POST['image'];
             $date = date("Y-m-d");
             // Insert data
-            $sql_insert = "INSERT INTO Submission (name, email, job, date) 
-                        VALUES (?,?,?,?)";
+            $sql_insert = "INSERT INTO Submission (name, email, job, image, date) 
+                        VALUES (?,?,?,$file_name,?)";
             $stmt = $conn->prepare($sql_insert);
             $stmt->bindValue(1, $name);
             $stmt->bindValue(2, $email);
             $stmt->bindValue(3, $job);
-            $stmt->bindValue(4, $date);            
+            $stmt->bindValue(4, $image);
+            $stmt->bindValue(5, $date);            
             $stmt->execute();
         } catch(Exception $e) {
             echo "Failed: " . $e;

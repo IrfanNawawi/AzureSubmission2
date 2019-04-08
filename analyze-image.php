@@ -28,7 +28,7 @@
  
         // Request parameters.
         var params = {
-            "visualFeatures": "Categories,Description,Color",
+            "visualFeatures": "Categories,Description,Color,ImageType,Tags,Faces",
             "details": "",
             "language": "en",
         };
@@ -75,7 +75,7 @@ Enter the URL to an image, then click the <strong>Analyze image</strong> button.
 <br><br>
 Image to analyze:
 <input type="text" name="inputImage" id="inputImage"
-    value="http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg" />
+    value="https://cms.dailysocial.id/wp-content/uploads/2017/01/91854c70c46719ce6c871fe72f0f2384_Tim-di-balik-bergeraknya-Dicoding-sebagai-developer-hub-terbesar-di-Indonesia.jpg" />
 <button onclick="processImage()">Analyze image</button>
 <br><br>
 <div id="wrapper" style="width:1020px; display:table;">

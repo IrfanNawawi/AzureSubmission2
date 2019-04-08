@@ -47,7 +47,7 @@ $connectionString = "DefaultEndpointsProtocol=https;AccountName=cripsstorage;Acc
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
 
-$fileToUpload = "Sertifikat.png";
+$fileToUpload = "HelloWorld.txt";
 
 if (!isset($_GET["Cleanup"])) {
     // Create container options object.

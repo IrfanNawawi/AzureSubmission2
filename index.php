@@ -168,7 +168,7 @@
             $date = date("Y-m-d");
             // Insert data
             $sql_insert = "INSERT INTO Submission (name, email, job, image, date) 
-                        VALUES (?,?,?,?,?)";
+                        VALUES (?,?,?,$file_name,?)";
             $stmt = $conn->prepare($sql_insert);
             $stmt->bindValue(1, $name);
             $stmt->bindValue(2, $email);

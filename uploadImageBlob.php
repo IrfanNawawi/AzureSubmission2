@@ -43,7 +43,7 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
 // $connectionString = "DefaultEndpointsProtocol=https;AccountName=".getenv('ACCOUNT_NAME').";AccountKey=".getenv('ACCOUNT_KEY');
 
-$connectionString = "DefaultEndpointsProtocol=https;AccountName=cripsstorage;AccountKey=buOWlctMRWL0IOiU/Klo2Fa1rIYZve2Z4KB3DVOloJZMt7bBErWb+xkcLU5OHfFMOAYdIihiKARuESnHqhnGtg==";
+//$connectionString = "DefaultEndpointsProtocol=https;AccountName=cripsstorage;AccountKey=buOWlctMRWL0IOiU/Klo2Fa1rIYZve2Z4KB3DVOloJZMt7bBErWb+xkcLU5OHfFMOAYdIihiKARuESnHqhnGtg==";
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
 
